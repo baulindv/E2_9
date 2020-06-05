@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="container">
+<div class="row">
+  <div class="col"><h5><a href="{% url 'sendmail:enter_email' %}">Ввести данные для отпраки почты</a></h5></div>
+  <div class="col"><h5><a href="{% url 'sendmail:list_email' %}">Посмотреть список писем в очереди</a></h5></div>
+</div>
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>

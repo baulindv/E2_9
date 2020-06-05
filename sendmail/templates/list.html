@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Список писем в очереди{% endblock %}
+
+{% block content %}
+<h3>Последние письма, добавленные в очередь:</h3>
+  <table class="table table-bordered">
+    <tr>
+      <th scope="col">№</th>
+      <th scope="col">Адресат</th>
+      <th scope="col">Тема</th>
+      <th scope="col">Текст</th>
+      <th scope="col">Отсрочка отправки, сек</th>
+    </tr>
+    {% for email in email_queue %}
+      <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ email.email }}</td>
+      <td>{{ email.params.0 }}</td>
+      <td>{{ email.params.1 }}</td>
+      <td>{{ email.params.2 }}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="5" scope="col">Нет писем в очереди</td> </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

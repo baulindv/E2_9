@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Введите данные для отправки почты{% endblock %}
+
+{% block content %}
+  {% if success %}
+    <div class="alert alert-success" role="alert">
+      Письмо успешно добавлено в очередь на отправку.
+    </div>
+  {% endif %}
+  <H3>Введите данные для отправки почты.</H3>
+  <form method="post" action="{% url 'sendmail:enter_email' %}" autocomplete="off">
+    <table>
+      {{ form.as_table }}
+      {% csrf_token %}
+      <tr><th colspan="2">
+        <button type="submit" class="btn btn-sm btn-outline-primary">Отправить</button>
+      </th> </tr>
+    </table>
+  </form>
+{% endblock %}
